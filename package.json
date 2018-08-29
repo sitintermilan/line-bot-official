@@ -1,16 +1,16 @@
 {
-  "name": "line-bot-official",
-  "version": "1.0.0",
-  "description": "line bot official",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "request": "^2.88.0"
-  }
+    "name": "line-bot-official",
+    "version": "1.0.0",
+    "description": "line bot official",
+    "main": "web.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.3",
+        "request": "^2.88.0"
+    }
 }
