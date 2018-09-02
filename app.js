@@ -9,15 +9,15 @@ const port = process.env.PORT || 5000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
-        let reply_token = req.body.events[0].replyToken
-        reply(reply_token)
-        res.sendStatus(200)
-    })
-    // app.get('/', (req, res) =>
-    //     res.send('hello !!')
-    // );
-    // app.post('/webhook', (req, res) => res.sendStatus(200));
-    // ----------------------------------
+    let reply_token = req.body.events[0].replyToken
+    reply(reply_token)
+    res.sendStatus(200)
+})
+app.get('/', (req, res) =>
+    res.send('webhook api reply messages auto by sittichai.jitvimas')
+);
+// app.post('/webhook', (req, res) => res.sendStatus(200));
+// ----------------------------------
 
 
 
