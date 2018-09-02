@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 80
 
 app.get('/', (req, res) =>
     res.send('hello !!')
@@ -10,5 +10,5 @@ app.get('/', (req, res) =>
 app.post('/webhook', (req, res) => res.sendStatus(200));
 
 app.listen(port, () => {
-    console.log('server start on port 4000');
+    console.log('server start on port 80');
 });
