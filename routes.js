@@ -14,7 +14,8 @@ const con = new _mysql({
 	host: "sql12.freemysqlhosting.net",
 	database : 'sql12255812',
 	user: "sql12255812",
-	password: "wvHaJ43Hml"
+	password: "wvHaJ43Hml",
+	charset: "utf8_general_ci"
 });
 /* con.connect(function(err) {
 	if (err) throw err;
@@ -23,7 +24,7 @@ const con = new _mysql({
 
 
 
-router.post('/webhook', (req, res) => {
+router.get('/webhook', (req, res) => {
 	let reply_token = req.body.events[0].replyToken;
 	var sql = "select * from Inbox where Run_No = 1";
 	let _messages = [];
@@ -59,7 +60,8 @@ router.post('/webhook', (req, res) => {
             }
         ]
     }) 
-    reply(_body)*/
+	reply(_body)*/
+	res.header("Content-Type", "application/json; charset=utf-8");
     res.sendStatus(200) 
 })
 router.get('/', (req, res) =>

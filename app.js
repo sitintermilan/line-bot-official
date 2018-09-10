@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use('/',routes)
 app.listen(process.env.PORT || port,() =>{
-	console.log('server start on port 8081')
+	console.log('server start on port 5000')
 })
 
 /* // ----------------------------------
