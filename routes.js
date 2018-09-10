@@ -23,7 +23,7 @@ const con = new _mysql({
 
 
 
-router.get('/webhook', (req, res) => {
+router.post('/webhook', (req, res) => {
 	let reply_token = req.body.events[0].replyToken;
 	var sql = "select * from Inbox where Run_No = 1";
 	let _messages = [];
