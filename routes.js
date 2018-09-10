@@ -27,7 +27,7 @@ const con = new _mysql({
 router.post('/webhook', (req, res) => {
 	console.log(req);
 	let reply_token = req.body.events[0].replyToken;
-	var _sql_log = "INSERT INTO Inbox (type, replyToken, source_userId, source_type, timestamp, message_type, message_id, message_text) VALUES ('"+req.body.events[0].type+"', '"+req.body.events[0].replyToken+"', '"+req.body.events[0].source.userId+"', '"+req.body.events[0].source.type+"', '"+req.body.events[0].source.timestamp+"', '"+req.body.events[0].message.type+"', '"+req.body.events[0].message.id+"', '"+req.body.events[0].message.text+"');";
+	var _sql_log = "INSERT INTO Inbox (type, replyToken, source_userId, source_type, timestamp, message_type, message_id, message_text) VALUES ('"+req.body.events[0].type+"', '"+req.body.events[0].replyToken+"', '"+req.body.events[0].source.userId+"', '"+req.body.events[0].source.type+"', '"+req.body.events[0].timestamp+"', '"+req.body.events[0].message.type+"', '"+req.body.events[0].message.id+"', '"+req.body.events[0].message.text+"');";
 	var sql = "select * from Reply where Run_No = 1";
 	let _messages = [];
 	const _log = con.query(_sql_log);
