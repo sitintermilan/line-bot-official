@@ -2,10 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
-const port = process.env.PORT || 5000
+const mysql = require('mysql');
+const config = require('./config')
+const routes = require('./routes.js')
+const port = config.server.port;
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use('/',routes)
+app.listen(process.env.PORT || port,() =>{
+	console.log('server start on port 8081')
+})
 
-// ----------------------------------
+/* // ----------------------------------
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
@@ -15,15 +24,12 @@ app.post('/webhook', (req, res) => {
 })
 app.get('/', (req, res) =>
     res.send('webhook api reply messages auto by sittichai.jitvimas')
-);
+); 
 // app.post('/webhook', (req, res) => res.sendStatus(200));
 // ----------------------------------
 
 
-
-
-
-app.listen(port, () => {
+ app.listen(port, () => {
     console.log('server start on port 5000');
 });
 // --FUNCTION-----------------------------------------------------------------//
@@ -53,3 +59,4 @@ function reply(reply_token) {
     });
 }
 // --FUNCTION-----------------------------------------------------------------//
+ */
