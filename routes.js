@@ -1,8 +1,8 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const request = require('request');
-const mysql = require('mysql');
-const _mysql = require('sync-mysql');
+//const mysql = require('mysql');
+//const _mysql = require('sync-mysql');
 const router = express.Router();
 /* const con = mysql.createConnection({
 	host: "sql12.freemysqlhosting.net",
@@ -10,13 +10,13 @@ const router = express.Router();
 	user: "sql12255812",
 	password: "wvHaJ43Hml"
 }); */
-const con = new _mysql({
+/* const con = new _mysql({
 	host: "sql12.freemysqlhosting.net",
 	database : 'sql12255812',
 	user: "sql12255812",
 	password: "wvHaJ43Hml",
 	charset: "utf8_general_ci"
-});
+}); */
 /* con.connect(function(err) {
 	if (err) throw err;
 	console.log("Connect Database Successfully!");
@@ -63,7 +63,7 @@ router.post('/webhook', (req, res) => {
             }
         ]
     }) 
-	reply(_body)
+	reply(reply_token,_body); 
 	res.header("Content-Type", "application/json; charset=utf-8");
     res.sendStatus(200) 
 })
