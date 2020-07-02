@@ -25,7 +25,7 @@ const con = new _mysql({
 
 
 router.post('/webhook', (req, res) => {
-	console.log(req);
+	/* console.log(req);
 	let reply_token = req.body.events[0].replyToken;
 	var _sql_log = "INSERT INTO Inbox (type, replyToken, source_userId, source_type, timestamp, message_type, message_id, message_text) VALUES ('"+req.body.events[0].type+"', '"+req.body.events[0].replyToken+"', '"+req.body.events[0].source.userId+"', '"+req.body.events[0].source.type+"', '"+req.body.events[0].timestamp+"', '"+req.body.events[0].message.type+"', '"+req.body.events[0].message.id+"', '"+req.body.events[0].message.text+"');";
 	var sql = "select * from Reply where Run_No = 1";
@@ -41,9 +41,9 @@ router.post('/webhook', (req, res) => {
 	});
 	console.log(_messages);
 	
-    reply(reply_token,_messages);
+    reply(reply_token,_messages); */
 	
-	/* con.query(sql,function (error, results, fields) {
+	/*con.query(sql,function (error, results, fields) {
 		if (error)throw error;
 		console.log("Connected!");
 		results.forEach(result => {
@@ -53,7 +53,7 @@ router.post('/webhook', (req, res) => {
 		console.log(_body);
 	});
 	con.end(); */
-	/*let reply_token = req.body.events[0].replyToken
+	let reply_token = req.body.events[0].replyToken
 	 let _body = JSON.stringify({
         replyToken: reply_token,
         messages: [
@@ -63,7 +63,7 @@ router.post('/webhook', (req, res) => {
             }
         ]
     }) 
-	reply(_body)*/
+	reply(_body)
 	res.header("Content-Type", "application/json; charset=utf-8");
     res.sendStatus(200) 
 })
