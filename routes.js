@@ -69,7 +69,7 @@ router.post('/webhook', async (req, res) => {
     res.sendStatus(200) 
 })
 router.get('/', (req, res) =>
-    res.send('webhook api reply messages auto by sittichai.jitvimas')
+    res.send('webhook api reply messages auto by sittichai.jitvimas v0.0.1')
 ); 
 
 /* 
