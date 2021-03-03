@@ -138,7 +138,7 @@ function sendMsg(reply_token,_messages) {
         headers: headers,
         body: data
     }, (err, res, body) => {	
-        console.log('sendMsg > status = ' + res.statusCode);
+        console.log('sendMsg > status = ' + res);
     });
 }
 
