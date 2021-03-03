@@ -63,7 +63,8 @@ router.post('/webhook', async (req, res) => {
             }
         ]
     }) 
-	await reply(reply_token,_body); 
+	//await reply(reply_token,_body); 
+	await sendMsg(reply_token,_body); 
 	res.header("Content-Type", "application/json; charset=utf-8");
     res.sendStatus(200) 
 })
@@ -114,6 +115,30 @@ function reply(reply_token,_messages) {
         body: body
     }, (err, res, body) => {
         console.log('status = ' + res.statusCode);
+    });
+}
+
+
+function sendMsg(reply_token,_messages) {
+    let headers = {
+        'Content-Type': 'application/json',
+	    'Authorization': 'Bearer c6ZI0iTQOeAo4Rhmbyo8WsgoNtnfGQwptJx+uEiVd+YcNXfaDoAwhaSlOyuqwmLKVF1i43Ctk0jKHodj5MCBD3G5+fyKLu49idaFttydulTN38dJLnDlRl+XZ+Oy5vL3F9qhc+FeC9+EjCJry6ws6AdB04t89/1O/w1cDnyilFU='        
+    }
+    const data = {
+        to: "U66f08ea3b04f9c5f7e511c5a62dc259e",
+        messages: [
+          {
+            type: "text",
+            text: "หมายเลขTicket: #INC-46822 TEST",
+          },
+        ],
+      };
+    request.post({
+        url: 'https://api.line.me/v2/bot/message/push',
+        headers: headers,
+        body: data
+    }, (err, res, body) => {	
+        console.log('sendMsg > status = ' + res.statusCode);
     });
 }
 
