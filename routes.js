@@ -24,7 +24,7 @@ const router = express.Router();
 
 
 
-router.post('/webhook', (req, res) => {
+router.post('/webhook', async (req, res) => {
 	/* console.log(req);
 	let reply_token = req.body.events[0].replyToken;
 	var _sql_log = "INSERT INTO Inbox (type, replyToken, source_userId, source_type, timestamp, message_type, message_id, message_text) VALUES ('"+req.body.events[0].type+"', '"+req.body.events[0].replyToken+"', '"+req.body.events[0].source.userId+"', '"+req.body.events[0].source.type+"', '"+req.body.events[0].timestamp+"', '"+req.body.events[0].message.type+"', '"+req.body.events[0].message.id+"', '"+req.body.events[0].message.text+"');";
@@ -63,7 +63,7 @@ router.post('/webhook', (req, res) => {
             }
         ]
     }) 
-	reply(reply_token,_body); 
+	await reply(reply_token,_body); 
 	res.header("Content-Type", "application/json; charset=utf-8");
     res.sendStatus(200) 
 })
@@ -89,7 +89,8 @@ router.get('/books/:id', (req, res) => {
 function reply(reply_token,_messages) {
     let headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer {c6ZI0iTQOeAo4Rhmbyo8WsgoNtnfGQwptJx+uEiVd+YcNXfaDoAwhaSlOyuqwmLKVF1i43Ctk0jKHodj5MCBD3G5+fyKLu49idaFttydulTN38dJLnDlRl+XZ+Oy5vL3F9qhc+FeC9+EjCJry6ws6AdB04t89/1O/w1cDnyilFU=}'
+	    'Authorization': 'Bearer c6ZI0iTQOeAo4Rhmbyo8WsgoNtnfGQwptJx+uEiVd+YcNXfaDoAwhaSlOyuqwmLKVF1i43Ctk0jKHodj5MCBD3G5+fyKLu49idaFttydulTN38dJLnDlRl+XZ+Oy5vL3F9qhc+FeC9+EjCJry6ws6AdB04t89/1O/w1cDnyilFU='
+        //'Authorization': 'Bearer {c6ZI0iTQOeAo4Rhmbyo8WsgoNtnfGQwptJx+uEiVd+YcNXfaDoAwhaSlOyuqwmLKVF1i43Ctk0jKHodj5MCBD3G5+fyKLu49idaFttydulTN38dJLnDlRl+XZ+Oy5vL3F9qhc+FeC9+EjCJry6ws6AdB04t89/1O/w1cDnyilFU=}'
     }
      /* let body = JSON.stringify({
         replyToken: reply_token,
